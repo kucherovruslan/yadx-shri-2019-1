@@ -1,0 +1,22 @@
+{
+  "name": "yadx-shri-2019-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "sass base/theme/theme.scss build/theme.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kucherovruslan/yadx-shri-2019-1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kucherovruslan/yadx-shri-2019-1/issues"
+  },
+  "homepage": "https://github.com/kucherovruslan/yadx-shri-2019-1#readme",
+  "dependencies": {
+    "sass": "^1.21.0"
+  }
+}

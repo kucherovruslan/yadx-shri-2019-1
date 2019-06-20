@@ -1,0 +1,374 @@
+$breakpoint: 1144px;
+
+
+
+$sizes: (
+    "xxxs": 2px,
+    "xxs": 4px,
+    "xs": 8px,
+    "s": 12px,
+    "m": 16px,
+    "l": 20px,
+    "xl": 24px,
+    "xxl": 32px,
+    "xxxl": 40px,
+    "xxxxl": 48px,
+    "xxxxxl": 72px
+);
+
+@media (max-width: $breakpoint) {
+    // TODO
+}
+
+// Темы
+.theme {
+    // Модификации цвета 
+    &_color {
+        &_project-default {
+            background-color: #FFFFFF;
+            border-color: #000000;
+            color: #000000;
+
+            & .text {
+                &_view {
+                    &_ghost {
+                        color: blue;
+                    }
+                }
+            }
+        }
+
+        &_project-brand {
+
+        }
+
+        &_project-inverse {
+
+        }
+
+        &_project-warning {
+
+        }
+
+        &_megafon-brand {
+
+        }
+
+    }
+    // Модификации размеров 
+    &_size {
+        &_default {
+
+        }
+
+        &_s {
+            font-size: 7px;
+            line-height: 18px;
+        }
+
+        &_m {
+            font-size: 8px;
+            line-height: 21px;
+        }
+
+        &_l {
+            font-size: 10px;
+            line-height: 25px;
+        }
+
+        &_xl {
+            font-size: 11px;
+            line-height: 28px;
+        }
+
+        &_xxl {
+            font-size: 13px;
+            line-height: 34px;
+        }
+    }
+    // Модификации отступов
+    &_space {
+
+        @each $size, $value in $sizes {
+            &_#{$size} {
+                padding: #{$value};
+            }
+        }
+
+        &_xxxs {
+            padding: map-get($sizes, "xxxs")
+        }
+        &_xxs {
+
+        }
+        &_xs {
+            
+        }
+        &_s {
+            
+        }
+        &_m {
+            
+        }
+        &_l {
+            
+        }
+        &_xl {
+            
+        }
+        &_xxl {
+            
+        }
+        &_xxxl {
+            
+        }
+        &_xxxxl {
+            
+        }
+        &_xxxxxl {
+            
+        }
+    }
+
+    &_gap {
+        &_small {
+
+        }
+    }
+
+}
+
+// Layout
+
+.layout {
+    &_container {
+        &_align {
+            &_center {
+                margin: auto;
+            }
+        }
+
+        &_size {
+            &_s {
+                max-width: 880px;
+            }
+            &_m {
+                max-width: 1144px;
+            }
+        }
+
+        &_space-v {
+            &_xxxxl {
+                padding-top: map-get($sizes, 'xxxl');
+                padding-bottom: map-get($sizes, 'xxxl');
+            }
+            &_xxxxxl {
+                padding-top: map-get($sizes, 'xxxxl');
+                padding-bottom: map-get($sizes, 'xxxxl');
+            }
+        }
+
+        &_indent-b {
+            &_xxl {
+                margin-bottom: map-get($sizes, 'xxl');
+            }
+            &_xxxxl {
+                margin-bottom: map-get($sizes, 'xxxxl');
+            }
+        }
+    }
+}
+
+// Grid
+
+.grid {
+    display: grid;
+
+    &_m-columns {
+        &_12 {
+            grid-template-columns: repeat(12, 1fr);
+        }
+        &_10 {
+            grid-template-columns: repeat(10, 1fr);
+        }
+    }
+    &_col-gap {
+        &_two-thirds {
+            grid-column-gap: calc(2 * map-get($sizes, 'm') / 3); //xxxl
+        }
+        &_full {
+            grid-column-gap: map-get($sizes, 'm'); //xxxl
+        }
+        &_half {
+            grid-column-gap: calc(map-get($sizes, 'm') / 2); //xxxl
+        }
+    }
+    &_row-gap {
+        &_half {
+            grid-row-gap: calc(map-get($sizes, 'm') / 2); //xxxl
+        }
+        &_full {
+            grid-row-gap: map-get($sizes, 'm'); //xxxl
+        }
+    }
+
+    &__fraction {
+        &_m-col {
+            &_2 {
+                grid-column: auto / span 2;
+            }
+            &_3 {
+                grid-column: auto / span 3
+            }
+            &_4 {
+                grid-column: auto / span 4
+            }
+            &_5 {
+                grid-column: auto / span 5
+            }
+            &_8 {
+                grid-column: auto / span 8
+            }
+        }
+    }
+}
+
+// Паттерны 
+
+.card {
+    &_border {
+        &_all {
+            border: 3px solid
+        }
+    }
+
+    &_view {
+        &_default {
+            background: inherit
+        }
+    }
+
+    &__content {
+        display: flex;
+
+        &_distribute {
+            &_center {
+                justify-content: center;
+            }
+        }
+        
+        &_vertical-align {
+            &_center {
+                align-items: center;
+            }
+        }
+
+        &_space-a {
+            &_m {
+                padding: map-get($sizes, 'm');
+            }
+            &_l {
+                padding: map-get($sizes, 'l');
+            }
+            &_xl {
+                padding: map-get($sizes, 'xl');
+            }
+            &_xxl {
+                padding: map-get($sizes, 'xxl');
+            }
+        }
+    }
+
+    &__footer {
+        position: absolute;
+        bottom: 0;
+        display: flex;
+
+        &_distribute {
+            &_between {
+                justify-content: space-between;
+            }
+            &_center {
+                justify-content: center;
+            }
+            &_right {
+                justify-content: flex-end;
+            }
+        }
+
+        &_vertical-align {
+            &_center {
+                align-items: center;
+            }
+            &_top {
+                align-items: flex-start;
+            }
+            &_bottom {
+                align-items: flex-end;
+            }
+        }
+
+        &_space-a {
+            &_m {
+                padding: map-get($sizes, 'm');
+            }
+            &_l {
+                padding: map-get($sizes, 'l');
+            }
+            &_xl {
+                padding: map-get($sizes, 'xl');
+            }
+            &_xxl {
+                padding: map-get($sizes, 'xxl');
+            }
+        }
+    }
+}
+
+.form {
+    &_border {
+        &_all {
+            border: 3px solid;
+        }
+    }
+    &_view {
+        &_default {
+            // ??
+        }
+    }
+
+    &__item {
+        &_border {
+            &_bottom {
+                border-bottom: 1px solid;
+            }
+        }
+        &_distribute{
+            &_between {
+
+            }
+        }
+        &_vertical-align {
+            &_center {
+                vertical-align: center;
+            }
+        }
+        &_indent-b {
+            // ???
+        }
+
+        &_space-h {
+            // ???
+        }
+
+        &_space-v {
+            // ???
+        }
+    }
+    &__label {
+
+    }
+    &__control {
+
+    }
+}
