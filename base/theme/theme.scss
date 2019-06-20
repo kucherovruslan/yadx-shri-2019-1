@@ -328,47 +328,284 @@ $sizes: (
 .form {
     &_border {
         &_all {
+            border: 3px solid; //todo what about color?
+        }
+    }
+    &_view {
+        &_default {
+            //todo what about color?
+        }
+    }
+
+    &__item {
+        display: flex;
+
+        &_border {
+            &_bottom {
+                border-bottom: 3px solid;
+
+                &:last-child {
+                    border: none;
+                }
+            }
+        }
+        &_distribute{
+            &_between {
+                justify-content: space-between;
+            }
+        }
+        &_vertical-align {
+            &_center {
+                align-items: center;
+            }
+        }
+        &_indent-b {
+            @each $size, $value in map-remove($sizes, 'xxxxl', 'xxxxxl') {
+                &_#{$size} {
+                    margin-bottom: #{$value};
+                }
+            }
+        }
+
+        &_space-h {
+            @each $size, $value in map-remove($sizes, 'xxxxl', 'xxxxxl') {
+                &_#{$size} {
+                    padding-left: #{$value};
+                    padding-right: #{$value};
+                }
+            }
+        }
+
+        &_space-v {
+            @each $size, $value in map-remove($sizes, 'xxxxl', 'xxxxxl') {
+                &_#{$size} {
+                    padding-top: #{$value};
+                    padding-bottom: #{$value};
+                }
+            }
+        }
+    }
+    &__label {
+        &_width {
+            &_default {
+                width: 35%;
+            }
+        }
+    }
+
+    &__control {
+        // Todo: need work with breakpoint
+    }
+}
+
+
+.informer {
+    &__content {
+        display: flex;
+
+        &_distribute {
+            &_default {
+                justify-content: flex-start;
+            }
+            &_between {
+                justify-content: space-between;
+            }
+            &_center {
+                justify-content: center;
+            }
+        }
+        &_space-a {
+            &_xl {
+                padding: map-get($sizes, 'xl');
+            }
+            &_xxl {
+                padding: map-get($sizes, 'xxl');
+            }
+        }
+    }
+
+    &__action {
+        // Todo распологается вконце
+        &_distribute {
+            &_default {
+                justify-content: flex-start;
+            }
+            &_between {
+                justify-content: space-between;
+            }
+            &_center {
+                justify-content: center;
+            }
+        }
+        &_space-a {
+            &_xl {
+                padding: map-get($sizes, 'xl');
+            }
+            &_xxl {
+                padding: map-get($sizes, 'xxl');
+            }
+        }
+    }
+}
+
+
+.list {
+    &_border {
+        &_all {
             border: 3px solid;
         }
     }
     &_view {
         &_default {
-            // ??
+            // color
         }
     }
 
     &__item {
+        display: flex;
+
         &_border {
             &_bottom {
-                border-bottom: 1px solid;
+                border-bottom: 3px solid;
+            }
+            &_top {
+                border-top: 3px solid;
             }
         }
-        &_distribute{
+        &_distribute {
             &_between {
-
+                justify-content: space-between;
             }
         }
         &_vertical-align {
             &_center {
-                vertical-align: center;
+                align-items: center;
+            }
+        }
+        &_indent-t {
+            &_m {
+                margin-top: map-get($sizes, 'm');
             }
         }
         &_indent-b {
-            // ???
+            &_s {
+                margin-bottom: map-get($sizes, 's');
+            }
+            &_m {
+                margin-bottom: map-get($sizes, 'm');
+            }
+            &_l {
+                margin-bottom: map-get($sizes, 'l');
+            }
+            &_xl {
+                margin-bottom: map-get($sizes, 'xl');
+            }
         }
-
-        &_space-h {
-            // ???
+        &_space-b {
+            &_s {
+                padding-bottom: map-get($sizes, 's');
+            }
         }
-
-        &_space-v {
-            // ???
+        &_space-a {
+            &_l {
+                padding: map-get($sizes, 'l');
+            }
         }
     }
-    &__label {
+}
 
+
+.icon-plus {
+    &_vertical-align {
+        &_center {
+            vertical-align: middle;
+        }
     }
-    &__control {
 
+    &__icon {
+        &_indent-r {
+            &_s {
+                margin-right: map-get($sizes, 's');
+            }
+            &_m {
+                margin-right: map-get($sizes, 'm');
+            }
+        }
+        &_indent-l {
+            &_l {
+                margin-left: map-get($sizes, 'l');
+            }
+        }
+    }
+    &__block {
+        //todo 
+    }
+}
+
+
+.section {
+    &_indent-b {
+        &_xxl {
+            margin-bottom: map-get($sizes, 'xxl');
+        }
+        &_xxxxl {
+            margin-bottom: map-get($sizes, 'xxxxl');
+        }
+    }
+
+    &_space-v {
+        &_xxl {
+            padding-top: map-get($sizes, 'xxl');
+            padding-bottom: map-get($sizes, 'xxl');
+        }
+        &_xxxxl {
+            padding-top: map-get($sizes, 'xxxxl');
+            padding-bottom: map-get($sizes, 'xxxxl');
+        }
+    }
+}
+
+
+// Content
+
+.text {
+    &_align {
+        &_center {
+            margin: 0 auto;
+        }
+    }
+    &_size {
+        &_s {
+            width: map-get($sizes, 's');
+        }
+        &_m {
+            width: map-get($sizes, 'm');
+        }
+        &_l {
+            width: map-get($sizes, 'l');
+        }
+        &_xl {
+            width: map-get($sizes, 'xl');
+        }
+        &_xxl {
+            width: map-get($sizes, 'xxl');
+        }
+    }
+    &_type {
+        &_h1 {
+            margin: 15px 0 21px;
+        }
+        &_h2 {
+            margin: 48px 0 20px;
+        }
+        &_h3 {
+            margin: 43px 0 0;
+        }
+        &_p {
+            margin: 15px 0 21px;
+        }
+    }
+    &_view {
+        //todo: color
     }
 }
