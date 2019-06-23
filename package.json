@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "sass base/theme/theme.scss build/theme.css"
+    "start": "node-sass --watch styles -o build",
+    "build": "sass styles/base.scss build/base.css"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,8 @@
   "homepage": "https://github.com/kucherovruslan/yadx-shri-2019-1#readme",
   "dependencies": {
     "sass": "^1.21.0"
+  },
+  "devDependencies": {
+    "node-sass": "^4.12.0"
   }
 }
