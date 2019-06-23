@@ -163,21 +163,21 @@ $sizes: (
 
         &_space-v {
             &_xxxxl {
-                padding-top: map-get($sizes, 'xxxl');
-                padding-bottom: map-get($sizes, 'xxxl');
+                padding-top: var(--space_xxxxl);
+                padding-bottom: var(--space_xxxxl);
             }
             &_xxxxxl {
-                padding-top: map-get($sizes, 'xxxxl');
-                padding-bottom: map-get($sizes, 'xxxxl');
+                padding-top: var(--space_xxxxxl);
+                padding-bottom: var(--space_xxxxxl);
             }
         }
 
         &_indent-b {
             &_xxl {
-                margin-bottom: map-get($sizes, 'xxl');
+                margin-bottom: var(--space_xxl);
             }
             &_xxxxl {
-                margin-bottom: map-get($sizes, 'xxxxl');
+                margin-bottom: var(--space_xxxxl);
             }
         }
     }
@@ -232,13 +232,13 @@ $sizes: (
 .card {
     &_border {
         &_all {
-            border: 3px solid
+            border: 3px solid var(--border-color);
         }
     }
 
     &_view {
         &_default {
-            background: inherit
+            background: var(--background-color-default);
         }
     }
 
@@ -258,17 +258,10 @@ $sizes: (
         }
 
         &_space-a {
-            &_m {
-                padding: map-get($sizes, 'm');
-            }
-            &_l {
-                padding: map-get($sizes, 'l');
-            }
-            &_xl {
-                padding: map-get($sizes, 'xl');
-            }
-            &_xxl {
-                padding: map-get($sizes, 'xxl');
+            @each $mod in m, l, xl, xxl {
+                &_#{$mod} {
+                    padding: var(--space_#{$mod});
+                }
             }
         }
     }
@@ -277,6 +270,7 @@ $sizes: (
         position: absolute;
         bottom: 0;
         display: flex;
+        width: 100%;
 
         &_distribute {
             &_between {
@@ -303,17 +297,10 @@ $sizes: (
         }
 
         &_space-a {
-            &_m {
-                padding: map-get($sizes, 'm');
-            }
-            &_l {
-                padding: map-get($sizes, 'l');
-            }
-            &_xl {
-                padding: map-get($sizes, 'xl');
-            }
-            &_xxl {
-                padding: map-get($sizes, 'xxl');
+            @each $mod in m, l, xl, xxl {
+                &_#{$mod} {
+                    padding: var(--space_#{$mod});
+                }
             }
         }
     }
@@ -322,12 +309,12 @@ $sizes: (
 .form {
     &_border {
         &_all {
-            border: 3px solid; //todo what about color?
+            border: 3px solid var(--border-color);
         }
     }
     &_view {
         &_default {
-            //todo what about color?
+            background-color: var(--background-color-default);
         }
     }
 
@@ -336,7 +323,7 @@ $sizes: (
 
         &_border {
             &_bottom {
-                border-bottom: 3px solid;
+                border-bottom: 3px solid var(--border-color);
 
                 &:last-child {
                     border: none;
@@ -354,27 +341,27 @@ $sizes: (
             }
         }
         &_indent-b {
-            @each $size, $value in map-remove($sizes, 'xxxxl', 'xxxxxl') {
-                &_#{$size} {
-                    margin-bottom: #{$value};
+            @each $mod in xxxs, xxs, s, m, l, xl, xxl, xxxl {
+                &_#{$mod} {
+                    margin-bottom: var(--space_#{$mod});
                 }
             }
         }
 
         &_space-h {
-            @each $size, $value in map-remove($sizes, 'xxxxl', 'xxxxxl') {
-                &_#{$size} {
-                    padding-left: #{$value};
-                    padding-right: #{$value};
+            @each $mod in xxxs, xxs, s, m, l, xl, xxl, xxxl {
+                &_#{$mod} {
+                    padding-left: var(--space_#{$mod});
+                    padding-right: var(--space_#{$mod});
                 }
             }
         }
 
         &_space-v {
-            @each $size, $value in map-remove($sizes, 'xxxxl', 'xxxxxl') {
-                &_#{$size} {
-                    padding-top: #{$value};
-                    padding-bottom: #{$value};
+            @each $mod in xxxs, xxs, s, m, l, xl, xxl, xxxl {
+                &_#{$mod} {
+                    padding-top: var(--space_#{$mod});
+                    padding-bottom: var(--space_#{$mod});
                 }
             }
         }
@@ -394,6 +381,8 @@ $sizes: (
 
 
 .informer {
+    background-color: var(--background-color-default);
+
     &__content {
         display: flex;
 
@@ -409,17 +398,15 @@ $sizes: (
             }
         }
         &_space-a {
-            &_xl {
-                padding: map-get($sizes, 'xl');
-            }
-            &_xxl {
-                padding: map-get($sizes, 'xxl');
+            @each $mod in xl, xxl {
+                &_#{$mod} {
+                    padding: var(--space_#{$mod});
+                }
             }
         }
     }
 
     &__action {
-        // Todo распологается вконце
         &_distribute {
             &_default {
                 justify-content: flex-start;
@@ -432,11 +419,10 @@ $sizes: (
             }
         }
         &_space-a {
-            &_xl {
-                padding: map-get($sizes, 'xl');
-            }
-            &_xxl {
-                padding: map-get($sizes, 'xxl');
+            @each $mod in xl, xxl {
+                &_#{$mod} {
+                    padding: var(--space_#{$mod});
+                }
             }
         }
     }
@@ -446,12 +432,12 @@ $sizes: (
 .list {
     &_border {
         &_all {
-            border: 3px solid;
+            border: 3px solid var(--border-color);
         }
     }
     &_view {
         &_default {
-            // color
+            background-color: var(--background-color-default);
         }
     }
 
@@ -460,10 +446,10 @@ $sizes: (
 
         &_border {
             &_bottom {
-                border-bottom: 3px solid;
+                border-bottom: 3px solid var(--border-color);
             }
             &_top {
-                border-top: 3px solid;
+                border-top: 3px solid var(--border-color);
             }
         }
         &_distribute {
@@ -478,31 +464,24 @@ $sizes: (
         }
         &_indent-t {
             &_m {
-                margin-top: map-get($sizes, 'm');
+                margin-top: var(--space_m);
             }
         }
         &_indent-b {
-            &_s {
-                margin-bottom: map-get($sizes, 's');
-            }
-            &_m {
-                margin-bottom: map-get($sizes, 'm');
-            }
-            &_l {
-                margin-bottom: map-get($sizes, 'l');
-            }
-            &_xl {
-                margin-bottom: map-get($sizes, 'xl');
+            @each $mod in s, m, l, xl {
+                &_#{$mod} {
+                    margin-bottom: var(--space_#{$mod});
+                }
             }
         }
         &_space-b {
             &_s {
-                padding-bottom: map-get($sizes, 's');
+                padding-bottom: var(--space_s);
             }
         }
         &_space-a {
             &_l {
-                padding: map-get($sizes, 'l');
+                padding: var(--space_l);
             }
         }
     }
@@ -519,42 +498,36 @@ $sizes: (
     &__icon {
         &_indent-r {
             &_s {
-                margin-right: map-get($sizes, 's');
+                margin-right: var(--space_s);
             }
             &_m {
-                margin-right: map-get($sizes, 'm');
+                margin-right: var(--space_m);
             }
         }
         &_indent-l {
             &_l {
-                margin-left: map-get($sizes, 'l');
+                margin-left: var(--space_l);
             }
         }
-    }
-    &__block {
-        //todo 
     }
 }
 
 
 .section {
     &_indent-b {
-        &_xxl {
-            margin-bottom: map-get($sizes, 'xxl');
-        }
-        &_xxxxl {
-            margin-bottom: map-get($sizes, 'xxxxl');
+        @each $mod in xxl, xxxxl {
+            &_#{$mod} {
+                margin-bottom: var(--space_#{$mod});
+            }
         }
     }
 
     &_space-v {
-        &_xxl {
-            padding-top: map-get($sizes, 'xxl');
-            padding-bottom: map-get($sizes, 'xxl');
-        }
-        &_xxxxl {
-            padding-top: map-get($sizes, 'xxxxl');
-            padding-bottom: map-get($sizes, 'xxxxl');
+        @each $mod in xxl, xxxxl {
+            &_#{$mod} {
+                padding-top: var(--space_#{$mod});
+                padding-bottom: var(--space_#{$mod});
+            }
         }
     }
 }
