@@ -410,16 +410,17 @@ $word-width: (
 
     &__content {
         display: flex;
+        flex-direction: column;
 
         &_distribute {
             &_default {
-                justify-content: flex-start;
+                align-items: flex-start;
             }
             &_between {
-                justify-content: space-between;
+                align-items: space-between;
             }
             &_center {
-                justify-content: center;
+                align-items: center;
             }
         }
         &_space-a {
@@ -578,7 +579,8 @@ $word-width: (
                 --word-width_l: #{get-word-width(#{$mod}, l)};
 
                 height: var(--font-size_#{$mod});
-                line-height: var(--line-height_#{$mod});
+                margin-top: calc((var(--line-height_#{$mod}) - var(--font-size_#{$mod})) / 2);
+                margin-bottom: calc((var(--line-height_#{$mod}) - var(--font-size_#{$mod})) / 2);
             }
         }
     }

@@ -1,4 +1,4 @@
-//informer, text, placeholder
+//informer, text, placeholder, button
 //размер внешних вертикальных отступов вложенного блока placeholder — m.
 
 const warning = {
@@ -41,7 +41,32 @@ const warning = {
                     mods: {
                         view: 'primary',
                         size: 'xl'
-                    }
+                    },
+                    content: [
+                        {
+                            block: 'text',
+                            elem: 'word',
+                            elemMods: {
+                                width: 'l'
+                            }
+                        }
+                    ]
+                },
+                {
+                    block: 'text',
+                    mods: {
+                        view: 'primary',
+                        size: 'xl'
+                    },
+                    content: [
+                        {
+                            block: 'text',
+                            elem: 'word',
+                            elemMods: {
+                                width: 'l'
+                            }
+                        }
+                    ]
                 }
             ]
         },

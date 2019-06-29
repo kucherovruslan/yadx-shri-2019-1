@@ -283,13 +283,14 @@
 .informer {
   background-color: var(--background-color-default); }
   .informer__content {
-    display: flex; }
+    display: flex;
+    flex-direction: column; }
     .informer__content_distribute_default {
-      justify-content: flex-start; }
+      align-items: flex-start; }
     .informer__content_distribute_between {
-      justify-content: space-between; }
+      align-items: space-between; }
     .informer__content_distribute_center {
-      justify-content: center; }
+      align-items: center; }
     .informer__content_space-a_xl {
       padding: var(--space_xl); }
     .informer__content_space-a_xxl {
@@ -373,7 +374,8 @@
   --word-width_m: 48px;
   --word-width_l: 100px;
   height: var(--font-size_s);
-  line-height: var(--line-height_s); }
+  margin-top: calc((var(--line-height_s) - var(--font-size_s)) / 2);
+  margin-bottom: calc((var(--line-height_s) - var(--font-size_s)) / 2); }
 
 .text_size_m {
   --word-height: 8px;
@@ -381,7 +383,8 @@
   --word-width_m: 56px;
   --word-width_l: 114px;
   height: var(--font-size_m);
-  line-height: var(--line-height_m); }
+  margin-top: calc((var(--line-height_m) - var(--font-size_m)) / 2);
+  margin-bottom: calc((var(--line-height_m) - var(--font-size_m)) / 2); }
 
 .text_size_l {
   --word-height: 10px;
@@ -389,7 +392,8 @@
   --word-width_m: 68px;
   --word-width_l: 138px;
   height: var(--font-size_l);
-  line-height: var(--line-height_l); }
+  margin-top: calc((var(--line-height_l) - var(--font-size_l)) / 2);
+  margin-bottom: calc((var(--line-height_l) - var(--font-size_l)) / 2); }
 
 .text_size_xl {
   --word-height: 11px;
@@ -397,7 +401,8 @@
   --word-width_m: 74px;
   --word-width_l: 154px;
   height: var(--font-size_xl);
-  line-height: var(--line-height_xl); }
+  margin-top: calc((var(--line-height_xl) - var(--font-size_xl)) / 2);
+  margin-bottom: calc((var(--line-height_xl) - var(--font-size_xl)) / 2); }
 
 .text_size_xxl {
   --word-height: 13px;
@@ -405,7 +410,8 @@
   --word-width_m: 88px;
   --word-width_l: 184px;
   height: var(--font-size_xxl);
-  line-height: var(--line-height_xxl); }
+  margin-top: calc((var(--line-height_xxl) - var(--font-size_xxl)) / 2);
+  margin-bottom: calc((var(--line-height_xxl) - var(--font-size_xxl)) / 2); }
 
 .text_type_h1 {
   margin: 15px 0 21px; }
