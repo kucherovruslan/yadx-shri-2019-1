@@ -569,6 +569,7 @@ $word-width: (
 // Content
 
 .text {
+    height: 100%;
     &_align {
         &_center {
             margin: 0 auto;
@@ -582,10 +583,7 @@ $word-width: (
                 --word-width_s: #{get-word-width(#{$mod}, s)};
                 --word-width_m: #{get-word-width(#{$mod}, m)};
                 --word-width_l: #{get-word-width(#{$mod}, l)};
-
-                height: var(--font-size_#{$mod});
-                margin-top: calc((var(--line-height_#{$mod}) - var(--font-size_#{$mod})) / 2);
-                margin-bottom: calc((var(--line-height_#{$mod}) - var(--font-size_#{$mod})) / 2);
+                --word-margin-v: calc((var(--line-height_#{$mod}) - var(--font-size_#{$mod})) / 2);
             }
         }
     }
@@ -623,6 +621,9 @@ $word-width: (
     &__word {
         height: var(--word-height);
         background-color: var(--text__word_color);
+        display: inline-block;
+        margin-top: var(--word-margin-v);
+        margin-bottom: var(--word-margin-v);
 
         &_width {
             &_s {
@@ -761,7 +762,7 @@ $word-width: (
     background-image: var(--image-url);
     background-repeat: no-repeat;
     background-position: center;
-    background-color: var(--border-color); //в задании проблемы с цветами
+    // background-color: var(--border-color); //в задании проблемы с цветами
 }
 
 .accordion {

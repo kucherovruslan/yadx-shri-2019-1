@@ -1,0 +1,14 @@
+.commercial {
+  min-height: 430px;
+  width: 354px;
+  margin: auto; }
+  .commercial .image {
+    height: 180px; }
+  .commercial .navigation {
+    display: flex;
+    justify-content: center; }
+  .commercial .page-button {
+    width: 8px;
+    height: 8px;
+    background-color: var(--text-color-primary);
+    margin-right: var(--space_xs); }
