@@ -1,12 +1,16 @@
-//.form .text
+
 
 .payment {
+    max-width: 551px;
+    margin: auto;
+
     &__header {
 
     }
 
     &__content {
-
+        flex-direction: column;
+        padding-bottom: 15px;
     }
 
     &__footer {

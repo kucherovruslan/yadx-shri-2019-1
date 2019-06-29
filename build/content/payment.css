@@ -1,0 +1,6 @@
+.payment {
+  max-width: 551px;
+  margin: auto; }
+  .payment__content {
+    flex-direction: column;
+    padding-bottom: 15px; }

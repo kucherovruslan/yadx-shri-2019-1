@@ -1,5 +1,38 @@
 $breakpoint-size: 1144px;
 
+$word-height: (s: 7px, m: 8px, l: 10px, xl: 11px, xxl: 13px);
+$word-width: (
+    s: (
+        s: 20px, m: 48px, l: 100px
+    ),
+    m: (
+        s: 24px, m: 56px, l: 114px
+    ),
+    l: (
+        s: 28px, m: 68px, l: 138px
+    ),
+    xl: (
+        s: 32px, m: 74px, l: 154px
+    ),
+    xxl: (
+        s: 36px, m: 88px, l: 184px
+    )
+);
+
+
+
+@function get-word-height($mod) {
+    @return map-get($word-height, $mod);
+}
+
+@function get-word-width($text-mod, $word-mod) {
+    @return map-get(map-get($word-width, $text-mod), $word-mod);
+}
+
+* {
+    box-sizing: border-box;
+}
+
 :root {
     --text-color-primary: black;
     --text-color-secondary: black;
@@ -12,21 +45,9 @@ $breakpoint-size: 1144px;
 
     --grid-col-12: 12;
     --grid-col-10: 10;
-}
 
-$sizes: (
-    "xxxs": 2px,
-    "xxs": 4px,
-    "xs": 8px,
-    "s": 12px,
-    "m": 16px,
-    "l": 20px,
-    "xl": 24px,
-    "xxl": 32px,
-    "xxxl": 40px,
-    "xxxxl": 48px,
-    "xxxxxl": 72px
-);
+    --image-url: url('../images/image-placeholder-primary.svg');
+}
 
 @media (max-width: $breakpoint-size) {
     --grid-col-12: 1;
@@ -70,6 +91,8 @@ $sizes: (
             --text-color-secondary: rgba(255, 255, 255, 0.6);
             --text-color-ghost: rgba(255, 255, 255, 0.3);
             --text-color-link: #0070f0;
+
+            --image-url:  url('../images/image-placeholder-inverse.svg');
         }
 
         &_project-warning {
@@ -320,6 +343,7 @@ $sizes: (
 
     &__item {
         display: flex;
+        width: 100%;
 
         &_border {
             &_bottom {
@@ -374,8 +398,9 @@ $sizes: (
         }
     }
 
-    &__control { 
-        // Todo: need work with breakpoint
+    &__control {
+        // border: 3px solid var(--border-color);
+        width: 65%;
     }
 }
 
@@ -407,6 +432,8 @@ $sizes: (
     }
 
     &__action {
+        display: flex;
+
         &_distribute {
             &_default {
                 justify-content: flex-start;
@@ -541,98 +568,21 @@ $sizes: (
             margin: 0 auto;
         }
     }
+
     &_size {
-        &_s {
-            width: map-get($sizes, 's');
-            .text__word {
-                height: 7px;
+        @each $mod in s, m, l, xl, xxl {
+            &_#{$mod} {
+                --word-height: #{get-word-height(#{$mod})};
+                --word-width_s: #{get-word-width(#{$mod}, s)};
+                --word-width_m: #{get-word-width(#{$mod}, m)};
+                --word-width_l: #{get-word-width(#{$mod}, l)};
 
-                &_width {
-                    &_s {
-                        width: 20px;
-                    }
-                    &_m {
-                        width: 48px;
-                    }
-                    &_l {
-                        width: 100px;
-                    }
-                }
-                
-            }
-        }
-        &_m {
-            width: map-get($sizes, 'm');
-            .text__word {
-                height: 8px;
-
-                &_width {
-                    &_s {
-                        width: 24px;
-                    }
-                    &_m {
-                        width: 56px;
-                    }
-                    &_l {
-                        width: 114px;
-                    }
-                }
-            }
-        }
-        &_l {
-            width: map-get($sizes, 'l');
-            .text__word {
-                height: 10px;
-                &_width {
-                    &_s {
-                        width: 28px;
-                    }
-                    &_m {
-                        width: 68px;
-                    }
-                    &_l {
-                        width: 138px;
-                    }
-                }
-            }
-        }
-        &_xl {
-            width: map-get($sizes, 'xl');
-            .text__word {
-                height: 11px;
-
-                &_width {
-                    &_s {
-                        width: 32px;
-                    }
-                    &_m {
-                        width: 74px;
-                    }
-                    &_l {
-                        width: 154px;
-                    }
-                }
-            }
-        }
-        &_xxl {
-            width: map-get($sizes, 'xxl');
-            .text__word {
-                height: 13px;
-
-                &_width {
-                    &_s {
-                        width: 36px;
-                    }
-                    &_m {
-                        width: 88px;
-                    }
-                    &_l {
-                        width: 184px;
-                    }
-                }
+                height: var(--font-size_#{$mod});
+                line-height: var(--line-height_#{$mod});
             }
         }
     }
+
     &_type {
         &_h1 {
             margin: 15px 0 21px;
@@ -649,30 +599,33 @@ $sizes: (
     }
     &_view {
         &_primary {
-            color: var(--text-color-primary);
+            --text__word_color: var(--text-color-primary);
         } 
         &_secondary {
-            color: var(--text-color-secondary);
+            --text__word_color: var(--text-color-secondary);
         } 
         &_ghost {
-            color: var(--text-color-ghost);
+            --text__word_color: var(--text-color-ghost);
         } 
         &_link {
-            color: var(--text-color-link);
+            --text__word_color: var(--text-color-link);
         }
     }
 
 
     &__word {
+        height: var(--word-height);
+        background-color: var(--text__word_color);
+
         &_width {
             &_s {
-                width: map-get($sizes, 's');
+                width: var(--word-width_s);
             }
             &_m {
-                width: map-get($sizes, 'm');
+                width: var(--word-width_m);
             }
             &_l {
-                width: map-get($sizes, 'l');
+                width: var(--word-width_l);
             }
         }
     }
@@ -680,7 +633,7 @@ $sizes: (
 
 
 .avatar {
-    //color
+    background-color: var(--text-color-primary);
 
     &_size {
         &_m {
@@ -732,7 +685,8 @@ $sizes: (
 
 
 .placeholder {
-    //color
+    background-color: var(--text-color-primary);
+
     &_size {
         &_m {
             height: 72px;
@@ -742,7 +696,7 @@ $sizes: (
 }
 
 .button {
-    //color
+    background-color: var(--background-color-accent);
     width: 200px;
 
     &_size {
@@ -772,6 +726,7 @@ $sizes: (
 
 .input {
     width: 100%; 
+    border: 3px solid var(--border-color);
 
     &_size {
         //TODO: DRY
@@ -795,8 +750,17 @@ $sizes: (
 
 .image {
     width: 100%;
-    border: 3px solid;
-    // background-image: заглушка и инверсия ее
+    border: 3px solid var(--border-color);
+    background-image: var(--image-url);
+    background-repeat: no-repeat;
 }
 
-//accordion
+.accordion {
+    &__header {
+
+    }
+
+    &__content {
+        display: none;
+    }
+}

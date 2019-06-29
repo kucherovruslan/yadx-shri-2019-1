@@ -1,4 +1,6 @@
- const payment = {
+//.form .text
+
+const payment = {
     block: 'payment',
     mix: [
         {
@@ -17,7 +19,7 @@
                     block: 'form',
                     elem: 'item',
                     elemMods: {
-                        'space-v': 'l',
+                        'space-v': 'xxl',
                         'space-h': 'xl',
                         border: 'bottom'
                     }
@@ -29,8 +31,24 @@
                     view: 'primary',
                     size: 'xxl'
                 },
+                // mix: [
+                //     {
+                //         block: 'form',
+                //         elem: 'label',
+                //         elemMods: {
+                //             width: 'default'
+                //         }
+                //     }
+                // ],
+                content: {
+                    block: 'text',
+                    elem: 'word',
+                    elemMods: {
+                        width: 'l'
+                    }
+                }
             }
-            
+
         },
         {
             block: 'payment',
@@ -44,6 +62,92 @@
                         'space-h': 'xl',
                         border: 'bottom'
                     }
+                }
+            ],
+            content: [
+                {
+                    block: 'form',
+                    elem: 'item',
+                    elemMods: {
+                        'indent-b': 'xl',
+                        'distribute': 'between',
+                        'vertical-align': 'center'
+                    },
+                    content: [
+                        {
+                            block: 'text',
+                            mods: {
+                                view: 'primary',
+                                size: 'l'
+                            },
+                            mix: [{
+                                block: 'form',
+                                elem: 'label',
+                                elemMods: {
+                                    width: 'default'
+                                },
+                            }],
+                            content: {
+                                block: 'text',
+                                elem: 'word',
+                                elemMods: {
+                                    width: 'l'
+                                }
+                            }
+                        },
+                        {
+                            block: 'form',
+                            elem: 'control',
+                            content: {
+                                block: 'input',
+                                mods: {
+                                    size: 'l'
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    block: 'form',
+                    elem: 'item',
+                    elemMods: {
+                        'indent-b': 'xl',
+                        'distribute': 'between',
+                        'vertical-align': 'center'
+                    },
+                    content: [
+                        {
+                            block: 'text',
+                            mods: {
+                                view: 'primary',
+                                size: 'l'
+                            },
+                            mix: [{
+                                block: 'form',
+                                elem: 'label',
+                                elemMods: {
+                                    width: 'default'
+                                },
+                            }],
+                            content: {
+                                block: 'text',
+                                elem: 'word',
+                                elemMods: {
+                                    width: 'l'
+                                }
+                            }
+                        },
+                        {
+                            block: 'form',
+                            elem: 'control',
+                            content: {
+                                block: 'input',
+                                mods: {
+                                    size: 'l'
+                                }
+                            }
+                        }
+                    ]
                 }
             ]
 
@@ -60,27 +164,48 @@
                         border: 'bottom',
                         'vertical-align': 'center',
                         'space-v': 'l',
-                        'space-h': 'xl' 
+                        'space-h': 'xl'
                     },
                 }
             ],
             content: [
                 {
                     block: 'text',
+                    mods: {
+                        view: 'primary',
+                        size: 'l'
+                    },
+                    content: {
+                        block: 'text',
+                        elem: 'word',
+                        elemMods: {
+                            width: 'l'
+                        }
+                    }
+                    // mix: [
+                    //     {
+                    //         block: 'form',
+                    //         elem: 'label',
+                    //         elemMods: {
+                    //             width: 'default'
+                    //         }
+                    //     }
+                    // ]
                 },
                 {
                     block: 'button',
                     mods: {
-                        size: 'm'
+                        size: 'l'
                     }
                 }
             ]
         },
     ]
-     
- }
 
- document.addEventListener('DOMContentLoaded', () => {
-    const html = parse(payment)
-    document.body.innerHTML = html;
- })
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const html = parse(payment);
+    const root = document.getElementById('root');
+    root.innerHTML = html;
+})

@@ -1,0 +1,5 @@
+.product {
+  min-height: 280px; }
+  .product__content {
+    height: 160px;
+    background: var(--background-color-default); }
