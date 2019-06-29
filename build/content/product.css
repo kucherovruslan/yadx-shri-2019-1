@@ -1,5 +1,7 @@
 .product {
-  min-height: 280px; }
+  min-height: 280px;
+  width: 212px;
+  margin: auto; }
   .product__content {
     height: 160px;
-    background: var(--background-color-default); }
+    box-sizing: content-box; }

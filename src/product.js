@@ -1,6 +1,3 @@
-//card, text
-//высота изображения — 160px.
-
 const product = {
     block: 'product',
     mix: [
@@ -42,8 +39,37 @@ const product = {
                         'space-a': 'm'
                     }
                 }
+            ],
+            content: [
+                {
+                    block: 'text',
+                    mods: {
+                        view: 'primary',
+                        size: 'm',
+                    },
+                    content: {
+                        block: 'text',
+                        elem: 'word',
+                        elemMods: {
+                            width: 'l'
+                        }
+                    }
+                },
+                {
+                    block: 'text',
+                    mods: {
+                        view: 'primary',
+                        size: 's'
+                    },
+                    content: {
+                        block: 'text',
+                        elem: 'word',
+                        elemMods: {
+                            width: 'm'
+                        }
+                    }
+                }
             ]
-
         }
     ]
 }

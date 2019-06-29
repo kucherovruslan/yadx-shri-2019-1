@@ -1,9 +1,11 @@
 .product {
     min-height: 280px;
+    width: 212px;
+    margin: auto;
 
     &__content {
         height: 160px;
-        background: var(--background-color-default);
+        box-sizing: content-box;
     }
 }
 
