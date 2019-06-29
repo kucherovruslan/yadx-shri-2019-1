@@ -1,0 +1,18 @@
+.history {
+  width: 749px;
+  margin: auto; }
+  .history__details {
+    display: flex;
+    width: 100%; }
+  .history__destination {
+    width: 100%; }
+  .history__time {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+  .history__label {
+    display: flex;
+    width: 100%;
+    justify-content: space-between; }
+  .history__show {
+    width: 100%; }

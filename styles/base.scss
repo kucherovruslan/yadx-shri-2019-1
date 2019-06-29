@@ -351,7 +351,7 @@ $word-width: (
         &_border {
             &_bottom {
                 border-bottom: 3px solid var(--border-color);
-
+                // todo 
                 &:last-child {
                     border: none;
                 }
@@ -476,7 +476,7 @@ $word-width: (
         display: flex;
 
         &_border {
-            &_bottom {
+            &_bottom:not(:last-child) {
                 border-bottom: 3px solid var(--border-color);
             }
             &_top {
@@ -520,9 +520,11 @@ $word-width: (
 
 
 .icon-plus {
+    display: flex;
+
     &_vertical-align {
         &_center {
-            vertical-align: middle;
+            align-items: center;
         }
     }
 
