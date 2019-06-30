@@ -1,0 +1,13 @@
+.articles {
+    width: 453px;
+    margin: auto;
+
+    .image {
+        height: 120px;
+        width: 170px;
+    }
+
+    &__content :last-child {
+        margin-top: var(--space_xs);
+    }
+}

@@ -1,0 +1,8 @@
+.articles {
+  width: 453px;
+  margin: auto; }
+  .articles .image {
+    height: 120px;
+    width: 170px; }
+  .articles__content :last-child {
+    margin-top: var(--space_xs); }
