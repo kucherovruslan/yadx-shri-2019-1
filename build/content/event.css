@@ -1,0 +1,14 @@
+.event {
+  min-height: 333px;
+  width: 551px;
+  margin: auto; }
+  .event__preview {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: var(--space_xl); }
+  .event__title {
+    margin-bottom: var(--space_s); }
+  .event__description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
