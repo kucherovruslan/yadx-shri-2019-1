@@ -1,0 +1,14 @@
+
+.subscription {
+    min-height: 408px;
+    width: 354px;
+    margin: auto;
+
+    .input {
+        margin-bottom: var(--space_s);
+    }
+
+    &__title {
+        margin-bottom: var(--space_xl);
+    }
+}
