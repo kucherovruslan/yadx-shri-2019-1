@@ -152,7 +152,8 @@
   .card_view_default {
     background: var(--background-color-default); }
   .card__content {
-    display: flex; }
+    display: flex;
+    flex-direction: column; }
     .card__content_distribute_center {
       justify-content: center; }
     .card__content_vertical-align_center {
