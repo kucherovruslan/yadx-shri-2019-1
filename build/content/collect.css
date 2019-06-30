@@ -1,0 +1,18 @@
+.collect {
+  min-height: 380px;
+  width: 271px;
+  margin: auto; }
+  .collect .image {
+    height: 160px;
+    background-color: var(--border-color); }
+  .collect__progress {
+    height: 8px; }
+  .collect__done {
+    height: 100%;
+    background-color: var(--text-color-link); }
+    .collect__done_size_one-third {
+      width: calc(100% / 3); }
+    .collect__done_size_half {
+      width: 50%; }
+    .collect__done_size_two-third {
+      width: calc(100% * 2 / 3); }

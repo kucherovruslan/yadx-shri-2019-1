@@ -1,0 +1,33 @@
+.collect {
+    min-height: 380px;
+    width: 271px;
+    margin: auto;
+
+    .image {
+        height: 160px;
+        background-color: var(--border-color); //опять в задание непонятно с цветами
+     }
+
+    &__progress {
+        height: 8px;
+    }
+
+    &__done {
+        height: 100%;
+        background-color: var(--text-color-link);
+
+        &_size {
+            &_one-third {
+                width: calc(100% / 3);
+            }
+
+            &_half {
+                width: 50%;
+            }
+
+            &_two-third {
+                width: calc(100% * 2 / 3);
+            }
+        }
+    }
+}
