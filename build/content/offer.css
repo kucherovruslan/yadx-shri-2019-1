@@ -1,0 +1,6 @@
+.offer {
+  min-height: 408px;
+  width: 255px;
+  margin: auto; }
+  .offer__name, .offer__sale {
+    margin-bottom: var(--space_xs); }
