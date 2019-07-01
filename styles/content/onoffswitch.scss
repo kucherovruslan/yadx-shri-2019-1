@@ -1,0 +1,22 @@
+$swtichBorderWidth: 2px;
+$swtichHeight: 32px;
+$swtichWidth: 97px;
+$switchButtonSize: 24px;
+
+
+.onoffswitch {
+    width: $swtichWidth;
+    height: $swtichHeight;
+    border: $swtichBorderWidth solid var(--border-color);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+
+    &__button {
+        width: $switchButtonSize;
+        height: $switchButtonSize;
+        background-color: var(--border-color);
+        margin: ($swtichHeight - $switchButtonSize - 2 * $swtichBorderWidth) / 2;
+    }
+}

@@ -1,0 +1,10 @@
+.header {
+  margin: var(--space_xxxl) var(--gap-space); }
+  .header__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+  .header__logo {
+    width: 179px;
+    height: 34px;
+    background-color: var(--text-color-primary); }
